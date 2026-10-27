@@ -3,7 +3,7 @@ import { createApp } from "./app.js";
 import { createSupabaseClient, verifySupabaseConnection } from "./database/db.js";
 
 const port = Number(process.env.PORT || 3000);
-const host = process.env.RENDER ? "0.0.0.0" : process.env.HOST || "127.0.0.1";
+const host = "0.0.0.0";
 let server;
 
 try {
