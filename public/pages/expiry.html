@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expiry dates | SmartPantry</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="SmartPantry home"><span class="brand-mark" aria-hidden="true">S</span>SmartPantry</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="primary-nav app-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="dashboard.html">Dashboard</a><a href="pantry.html">Pantry</a><a href="expiry.html" aria-current="page">Expiry</a><a href="shopping-list.html">Shopping list</a><a href="meal-planner.html">Meal planner</a><a class="nav-account" href="login.html">Log in</a>
+    </nav>
+  </header>
+  <main class="app-main" id="main-content">
+    <div class="page-heading"><div><p class="eyebrow">Make good food go further</p><h1>Expiry dates</h1><p class="page-intro">Keep track of groceries to use soon and food that may have expired.</p></div><a class="button" href="pantry.html">Add pantry item</a></div>
+    <div class="notice" role="status" data-app-notice><span class="notice-dot" aria-hidden="true"></span><p>Loading expiry dates...</p></div>
+    <section class="content-section expiry-group" aria-labelledby="expired-title" data-expiry-list="expired">
+      <div class="section-title-row"><div><p class="eyebrow">Check before using</p><h2 id="expired-title">Past expiry date</h2></div><span class="quiet-label" data-count></span></div>
+      <div class="record-list" data-record-list aria-live="polite"></div>
+      <div class="empty-state compact-empty" data-empty-state><h3>No expired items to show</h3><p>Items past their expiry date will appear here.</p></div>
+    </section>
+    <section class="content-section expiry-group" aria-labelledby="soon-title" data-expiry-list="soon">
+      <div class="section-title-row"><div><p class="eyebrow">Use these first</p><h2 id="soon-title">Expiring soon</h2></div><span class="quiet-label" data-count></span></div>
+      <div class="record-list" data-record-list aria-live="polite"></div>
+      <div class="empty-state compact-empty" data-empty-state><h3>No upcoming dates to show</h3><p>Add an expiry date to a pantry item to see it listed here.</p></div>
+    </section>
+  </main>
+  <footer class="app-footer"><span>SmartPantry</span><a href="index.html">Home</a></footer>
+</body>
+</html>

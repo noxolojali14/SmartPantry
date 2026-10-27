@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | SmartPantry</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="SmartPantry home"><span class="brand-mark" aria-hidden="true">S</span>SmartPantry</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="primary-nav app-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="dashboard.html" aria-current="page">Dashboard</a>
+      <a href="pantry.html">Pantry</a>
+      <a href="expiry.html">Expiry</a>
+      <a href="shopping-list.html">Shopping list</a>
+      <a href="meal-planner.html">Meal planner</a>
+      <a class="nav-account" href="login.html">Log in</a>
+    </nav>
+  </header>
+  <main class="app-main" id="main-content">
+    <div class="page-heading">
+      <div><p class="eyebrow">Your kitchen at a glance</p><h1>Dashboard</h1></div>
+      <a class="button" href="pantry.html">Add pantry item</a>
+    </div>
+    <div class="notice" role="status" data-app-notice><span class="notice-dot" aria-hidden="true"></span><p>Loading your pantry...</p></div>
+    <section class="summary-grid" aria-label="Pantry summary">
+      <article class="summary-item"><p class="summary-label">Pantry items</p><p class="summary-value" id="pantry-total">—</p><a href="pantry.html">View pantry <span aria-hidden="true">&rarr;</span></a></article>
+      <article class="summary-item"><p class="summary-label">Expiring soon</p><p class="summary-value" id="expiring-total">—</p><a href="expiry.html">Check expiry dates <span aria-hidden="true">&rarr;</span></a></article>
+      <article class="summary-item"><p class="summary-label">Shopping progress</p><p class="summary-value" id="shopping-progress">—</p><a href="shopping-list.html">Open shopping list <span aria-hidden="true">&rarr;</span></a></article>
+    </section>
+    <section class="dashboard-lower">
+      <div class="content-section">
+        <div class="section-title-row"><div><p class="eyebrow">Use it while it’s fresh</p><h2>Expiring soon</h2></div><a class="text-link" href="expiry.html">See all <span aria-hidden="true">&rarr;</span></a></div>
+        <div class="record-list" data-record-list aria-live="polite"></div>
+        <div class="empty-state compact-empty" data-empty-state><span class="empty-mark" aria-hidden="true">01</span><h3>Your expiry list will appear here</h3><p>Add pantry items with expiry dates to keep track of what to use first.</p></div>
+      </div>
+      <div class="content-section">
+        <div class="section-title-row"><div><p class="eyebrow">Ready for your next shop</p><h2>Shopping list</h2></div><a class="text-link" href="shopping-list.html">Open list <span aria-hidden="true">&rarr;</span></a></div>
+        <div class="record-list" data-record-list aria-live="polite"></div>
+        <div class="empty-state compact-empty" data-empty-state><span class="empty-mark" aria-hidden="true">02</span><h3>Nothing on your list yet</h3><p>Add groceries you need and keep your next shop organized.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><span>SmartPantry</span><a href="index.html">Home</a></footer>
+</body>
+</html>

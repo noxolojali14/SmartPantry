@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My pantry | SmartPantry</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="SmartPantry home"><span class="brand-mark" aria-hidden="true">S</span>SmartPantry</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="primary-nav app-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="dashboard.html">Dashboard</a><a href="pantry.html" aria-current="page">Pantry</a><a href="expiry.html">Expiry</a><a href="shopping-list.html">Shopping list</a><a href="meal-planner.html">Meal planner</a><a class="nav-account" href="login.html">Log in</a>
+    </nav>
+  </header>
+  <main class="app-main" id="main-content">
+    <div class="page-heading"><div><p class="eyebrow">What’s in your kitchen</p><h1>My pantry</h1></div><a class="button button-secondary" href="expiry.html">View expiry dates</a></div>
+    <div class="notice" role="status" data-app-notice><span class="notice-dot" aria-hidden="true"></span><p>Loading your pantry...</p></div>
+    <section class="form-section" aria-labelledby="add-pantry-title">
+      <div class="section-title-row"><div><p class="eyebrow">Keep your list current</p><h2 id="add-pantry-title">Add a grocery item</h2></div></div>
+      <form class="entry-form" data-resource-form="pantry">
+        <div class="field"><label for="item-name">Item name</label><input id="item-name" name="name" type="text" required maxlength="100" placeholder="e.g. Rolled oats"></div>
+        <div class="field"><label for="item-quantity">Quantity</label><input id="item-quantity" name="quantity" type="number" min="0.01" step="any" required placeholder="1"></div>
+        <div class="field"><label for="item-unit">Unit <span class="field-hint">Optional</span></label><input id="item-unit" name="unit" type="text" maxlength="30" placeholder="bag, kg, cans"></div>
+        <div class="field"><label for="item-expiry">Expiry date <span class="field-hint">Optional</span></label><input id="item-expiry" name="expiryDate" type="date"></div>
+        <div class="form-submit"><button class="button" type="submit">Add item</button><p class="form-message" data-form-message role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
+    <section class="content-section list-section" aria-labelledby="pantry-list-title">
+      <div class="section-title-row"><div><p class="eyebrow">Your saved groceries</p><h2 id="pantry-list-title">Pantry items</h2></div><label class="search-field" for="pantry-search">Search<input id="pantry-search" type="search" placeholder="Search pantry" aria-describedby="search-note"></label></div>
+      <p class="field-hint" id="search-note">Search your saved groceries by name.</p>
+      <div class="record-list" data-record-list aria-live="polite"></div>
+      <div class="empty-state" data-empty-state><span class="empty-mark" aria-hidden="true">01</span><h3>Your pantry is ready when you are</h3><p>Add grocery items to keep track of what you have at home.</p></div>
+    </section>
+  </main>
+  <footer class="app-footer"><span>SmartPantry</span><a href="index.html">Home</a></footer>
+</body>
+</html>

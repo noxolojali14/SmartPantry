@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping list | SmartPantry</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header app-header">
+    <a class="brand" href="index.html" aria-label="SmartPantry home"><span class="brand-mark" aria-hidden="true">S</span>SmartPantry</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="primary-nav app-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="dashboard.html">Dashboard</a><a href="pantry.html">Pantry</a><a href="expiry.html">Expiry</a><a href="shopping-list.html" aria-current="page">Shopping list</a><a href="meal-planner.html">Meal planner</a><a class="nav-account" href="login.html">Log in</a>
+    </nav>
+  </header>
+  <main class="app-main" id="main-content">
+    <div class="page-heading"><div><p class="eyebrow">Bring home what you need</p><h1>Shopping list</h1><p class="page-intro">Add groceries for your next shop and mark them off as you go.</p></div></div>
+    <div class="notice" role="status" data-app-notice><span class="notice-dot" aria-hidden="true"></span><p>Loading your shopping list...</p></div>
+    <section class="form-section" aria-labelledby="add-shopping-title">
+      <div class="section-title-row"><div><p class="eyebrow">Plan your next shop</p><h2 id="add-shopping-title">Add an item</h2></div></div>
+      <form class="entry-form shopping-entry" data-resource-form="shopping-list">
+        <div class="field"><label for="shopping-name">Item name</label><input id="shopping-name" name="name" type="text" required maxlength="100" placeholder="e.g. Wholegrain bread"></div>
+        <div class="field"><label for="shopping-quantity">Quantity</label><input id="shopping-quantity" name="quantity" type="number" min="0.01" step="any" required placeholder="1"></div>
+        <div class="field"><label for="shopping-unit">Unit <span class="field-hint">Optional</span></label><input id="shopping-unit" name="unit" type="text" maxlength="30" placeholder="loaf, pack, kg"></div>
+        <div class="form-submit"><button class="button" type="submit">Add to list</button><p class="form-message" data-form-message role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
+    <section class="content-section list-section" aria-labelledby="shopping-list-title">
+      <div class="section-title-row"><div><p class="eyebrow">Your next shop</p><h2 id="shopping-list-title">Items to buy</h2></div><p class="quiet-label" data-shopping-count></p></div>
+      <div class="record-list" data-record-list aria-live="polite"></div>
+      <div class="empty-state" data-empty-state><span class="empty-mark" aria-hidden="true">02</span><h3>Your list is clear</h3><p>Add groceries you need for your next shop.</p></div>
+    </section>
+  </main>
+  <footer class="app-footer"><span>SmartPantry</span><a href="index.html">Home</a></footer>
+</body>
+</html>

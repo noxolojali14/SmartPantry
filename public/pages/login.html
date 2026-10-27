@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in | SmartPantry</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="auth-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="SmartPantry home"><span class="brand-mark" aria-hidden="true">S</span>SmartPantry</a>
+    <a class="text-link" href="register.html">Create an account <span aria-hidden="true">&rarr;</span></a>
+  </header>
+  <main class="auth-layout" id="main-content">
+    <section class="auth-aside">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Your kitchen, in good order.</h1>
+      <p>Sign in to see your pantry, keep an eye on expiry dates, and pick up where you left off.</p>
+    </section>
+    <section class="auth-panel" aria-labelledby="form-title">
+      <p class="eyebrow">Your account</p>
+      <h2 id="form-title">Log in</h2>
+      <form data-auth-form="login">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8">
+        </div>
+        <button class="button button-full" type="submit">Log in</button>
+        <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+      </form>
+      <p class="auth-switch">New to SmartPantry? <a class="text-link" href="register.html">Create an account</a></p>
+    </section>
+  </main>
+  <footer class="minimal-footer"><a href="index.html">SmartPantry</a></footer>
+</body>
+</html>
