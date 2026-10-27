@@ -10,7 +10,16 @@ describe("SmartPantry API", () => {
 
   before(async () => {
     supabase = createFakeSupabase();
-    server = createApp({ supabase, sessionSecret: "test-secret-with-more-than-32-characters" }).listen(0);
+    const previousRender = process.env.RENDER;
+    let app;
+    try {
+      process.env.RENDER = "true";
+      app = createApp({ supabase, sessionSecret: "test-secret-with-more-than-32-characters" });
+    } finally {
+      if (previousRender === undefined) delete process.env.RENDER;
+      else process.env.RENDER = previousRender;
+    }
+    server = app.listen(0);
     await new Promise((resolve) => server.once("listening", resolve));
     baseUrl = `http://127.0.0.1:${server.address().port}`;
   });
@@ -19,11 +28,12 @@ describe("SmartPantry API", () => {
     if (server) await new Promise((resolve) => server.close(resolve));
   });
 
-  async function request(url, { method = "GET", body, cookie, origin } = {}) {
+  async function request(url, { method = "GET", body, cookie, origin, forwardedProto } = {}) {
     const headers = {};
     if (body !== undefined) headers["content-type"] = "application/json";
     if (cookie) headers.cookie = cookie;
     if (origin) headers.origin = origin;
+    if (forwardedProto) headers["x-forwarded-proto"] = forwardedProto;
     const response = await fetch(`${baseUrl}${url}`, {
       method,
       headers,
@@ -87,6 +97,16 @@ describe("SmartPantry API", () => {
     const logout = await request("/api/auth/logout", { method: "POST", cookie, body: {} });
     assert.equal(logout.response.status, 204);
     assert.equal((await request("/api/auth/me", { cookie })).response.status, 401);
+  });
+
+  it("accepts same-origin HTTPS writes forwarded by Render", async () => {
+    const registration = await request("/api/auth/register", {
+      method: "POST",
+      origin: `https://127.0.0.1:${server.address().port}`,
+      forwardedProto: "https",
+      body: { name: "Render User", email: "render@example.com", password: "correct-password-1" }
+    });
+    assert.equal(registration.response.status, 201);
   });
 
   it("requires authentication and rejects invalid or cross-origin writes", async () => {

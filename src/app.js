@@ -21,7 +21,7 @@ export function createApp({ supabase, sessionSecret = process.env.SESSION_SECRET
 
   const app = express();
   const production = process.env.NODE_ENV === "production";
-  if (production) app.set("trust proxy", 1);
+  if (production || process.env.RENDER) app.set("trust proxy", 1);
   app.disable("x-powered-by");
   app.use(express.json({ limit: "16kb" }));
   app.use(session({
