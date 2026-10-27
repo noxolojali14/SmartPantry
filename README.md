@@ -112,3 +112,4 @@ tests/                   Offline API/schema tests and opt-in live Supabase test
 - RLS is enabled on application tables. The server's service-role client bypasses RLS, so API-side ownership filters are required on every personal-data query. Keep the service-role key server-side.
 - Request bodies and query parameters are validated. Supabase client filters safely parameterize values, and meal/ingredient create and replacement operations use PostgreSQL functions so changes are atomic.
 - State-changing API calls require same-origin JSON requests. Do not expose the development server directly to the public internet.# SmartPantry
+# SmartPantry
